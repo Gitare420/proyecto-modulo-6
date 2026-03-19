@@ -14,3 +14,14 @@ CREATE TABLE testimonios (
   nombre VARCHAR(100) NOT NULL,
   mensaje TEXT NOT NULL
 );
+
+INSERT INTO viajes (destino, presupuesto, descripcion)
+VALUES
+('Brasil', 500000, 'Playas, sol y turismo'),
+('Argentina', 320000, 'Gastronomía y ciudad'),
+('Perú', 410000, 'Historia y cultura');
+
+INSERT INTO testimonios (nombre, mensaje)
+VALUES
+('Ana', 'Muy buena experiencia'),
+('Carlos', 'Todo salió excelente');

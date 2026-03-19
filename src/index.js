@@ -1,16 +1,19 @@
-import express from 'express'
+import express from "express";
+import viajesRouter from './routes/viajesRoute.js'
 
-const app = express()
+const app = express();
 
-const PORT = process.env.PORT || 3000
+const PORT = process.env.PORT || 3000;
 
-//Middelwares
-
+//Middlewares
+app.use(express.json())
 
 //Configuración de Handlebars
 
 //Rutas
+app.use('/', viajesRouter)
 
-app.listen(PORT, ()=>{
-    console.log(`Server running on port http://localhost:${PORT}`)
-})
+
+app.listen(PORT, () => {
+  console.log(`Server running on port http://localhost:${PORT}`);
+});

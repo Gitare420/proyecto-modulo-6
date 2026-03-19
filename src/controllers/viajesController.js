@@ -1,0 +1,25 @@
+import { findAll, create } from "../models/viajesModel.js";
+
+const getViajes = async (req, res) => {
+  try {
+    const viajes = await findAll();
+    res.json(viajes);
+  } catch (error) {
+    res.status(500).json({
+      error: "Error al obtener los viajes",
+    });
+  }
+};
+
+const createViaje = async (req, res) => {
+  try {
+    const { destino, presupuesto, descripcion } = req.body;
+    const newViaje = await create(destino, presupuesto, descripcion);
+    res.status(201).json(newViaje);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: "Error al crear viaje" });
+  }
+};
+
+export { getViajes, createViaje };
